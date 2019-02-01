@@ -32,7 +32,8 @@
 
     <scm>
         <connection>scm:git:https://github.com/mayanjun/myjack.git</connection>
-        <developerConnection>scm:git:https://github.com/mayanjun</developerConnection>
+        <developerConnection>scm:git:https://github.com/mayanjun/myjack.git</developerConnection>
+        <url>https://github.com/mayanjun/myjack.git</url>
     </scm>
 
     <properties>
@@ -76,18 +77,6 @@
             </plugin>
 
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.3</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>2.4</version>
@@ -119,15 +108,18 @@
     </build>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>maven-releases</id>
-            <name>Maven Central Staging Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>oss</id>
+            <url>
+                https://oss.sonatype.org/service/local/staging/deploy/maven2
+            </url>
         </repository>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>
+                https://oss.sonatype.org/content/repositories/snapshots
+            </url>
+        </snapshotRepository>
     </distributionManagement>
 
 </project>
