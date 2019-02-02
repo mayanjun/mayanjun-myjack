@@ -23,18 +23,18 @@ public class DatabaseSession {
 
     private String name;
 
-    private SqlSession session;
+    private SqlSession sqlSession;
 
     private TransactionTemplate transaction;
 
-    public DatabaseSession(String name, SqlSession session) {
+    public DatabaseSession(String name, SqlSession sqlSession) {
         this.name = name;
-        this.session = session;
+        this.sqlSession = sqlSession;
     }
 
-    public DatabaseSession(String name, SqlSession session, TransactionTemplate transaction) {
+    public DatabaseSession(String name, SqlSession sqlSession, TransactionTemplate transaction) {
         this.name = name;
-        this.session = session;
+        this.sqlSession = sqlSession;
         this.transaction = transaction;
     }
 
@@ -46,12 +46,12 @@ public class DatabaseSession {
         this.name = name;
     }
 
-    public SqlSession getSession() {
-        return session;
+    public SqlSession getSqlSession() {
+        return sqlSession;
     }
 
-    public void setSession(SqlSession session) {
-        this.session = session;
+    public void setSqlSession(SqlSession sqlSession) {
+        this.sqlSession = sqlSession;
     }
 
     public TransactionTemplate getTransaction() {

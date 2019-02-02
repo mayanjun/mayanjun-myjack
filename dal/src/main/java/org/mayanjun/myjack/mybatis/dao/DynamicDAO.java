@@ -238,7 +238,7 @@ public class DynamicDAO implements DataBaseRouteDAO, ShardingEntityAccessor, Ini
 
     private SqlSession getSqlSession(Sharding sharding, Object source) {
         //SqlSession sqlSession = getDataBaseRouter().getMasterDataBaseSqlSession(); // forced to use MASTER DB
-        SqlSession sqlSession = getDataBaseRouter().getDatabaseSession(sharding, source).getSession();
+        SqlSession sqlSession = getDataBaseRouter().getDatabaseSession(sharding, source).getSqlSession();
         Assert.notNull(sqlSession, "Can not get SqlSession");
         return sqlSession;
     }
