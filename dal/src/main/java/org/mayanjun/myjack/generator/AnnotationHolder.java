@@ -28,6 +28,7 @@ import java.lang.reflect.Field;
  * @since 0.0.5
  */
 public class AnnotationHolder {
+
         Column column;
         PrimaryKey primaryKey;
         private Field field;

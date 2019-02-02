@@ -74,6 +74,12 @@ public class AnnotationHelper {
         return tableName;
     }
 
+    /**
+     * Return the column name mapped to the specified field
+     * @param field field name
+     * @param beanType bean type
+     * @return
+     */
     public static String getColumnName(String field, Class<?> beanType) {
         AnnotationHolder an = getAnnotationHolder(field, beanType);
         if(an == null) {
@@ -99,7 +105,7 @@ public class AnnotationHelper {
 
     /**
      * Smart search for {@link AnnotationHolder}
-     * @param field
+     * @param field field name
      * @param map
      * @return
      */
@@ -115,6 +121,11 @@ public class AnnotationHelper {
         return null;
     }
 
+    /**
+     * Returns the {@link AnnotationHolder} of primary key in the specified key
+     * @param beanType the bean type
+     * @return
+     */
     public static AnnotationHolder getPrimaryAnnotationHolder(Class<?> beanType) {
         AnnotationHolder primary = PRIMARY_ANNOTATIONHOLDER_CACHE.get(beanType);
         if(primary == null) {
@@ -130,6 +141,11 @@ public class AnnotationHelper {
         return primary;
     }
 
+    /**
+     * Parse the column name
+     * @param annotationHolder holder object
+     * @return
+     */
     public static String getColumnName(AnnotationHolder annotationHolder) {
         Column c = annotationHolder.column;
         Field f = annotationHolder.getField();
@@ -143,6 +159,11 @@ public class AnnotationHelper {
         return SqlUtils.toHumpString(name);
     }
 
+    /**
+     * Returns the ognl field name
+     * @param annotationHolder annotationHolder object
+     * @return the ognl field name
+     */
     public static String getOgnlName(AnnotationHolder annotationHolder) {
         Field f = annotationHolder.getField();
         String ognl = annotationHolder.getOgnl();
@@ -150,6 +171,11 @@ public class AnnotationHelper {
         return ognl + "." + f.getName();
     }
 
+    /**
+     * Returns the {@link AnnotationHolder} map
+     * @param cls bean type
+     * @return Returns the {@link AnnotationHolder} map
+     */
     public static Map<String, AnnotationHolder> getAnnotationHoldersMap(Class<?> cls) {
         Map<String, AnnotationHolder> map = ANNOTATIONHOLDERS_CACHE.get(cls);
         if(map == null) {
@@ -159,6 +185,11 @@ public class AnnotationHelper {
         return map;
     }
 
+    /**
+     * Returns {@link AnnotationHolder} list for a bean type
+     * @param cls bean type
+     * @return AnnotationHolder list
+     */
     public static List<AnnotationHolder> getAnnotationHolders(Class<?> cls) {
         Map<String, AnnotationHolder> map = getAnnotationHoldersMap(cls);
         List<AnnotationHolder> list = ANNOTATIONHOLDER_LIST_CACHE.get(cls);
@@ -194,8 +225,8 @@ public class AnnotationHelper {
 
     /**
      * Returns a readonly map that contains all of annotation holders of a class.
-     * @param cls
-     * @param ognl
+     * @param cls bean type
+     * @param ognl Ognl name
      * @return
      */
     private static Map<String, AnnotationHolder> getAllColumnAnnotationHoldersInternal(Class<?> cls, String ognl) {
