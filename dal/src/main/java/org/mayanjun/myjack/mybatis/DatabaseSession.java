@@ -16,6 +16,7 @@
 
 package org.mayanjun.myjack.mybatis;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.transaction.support.TransactionTemplate;
 
@@ -26,6 +27,17 @@ public class DatabaseSession {
     private SqlSession sqlSession;
 
     private TransactionTemplate transaction;
+
+    public boolean hasMapper(Class<?> type) {
+        return sqlSession.getConfiguration().hasMapper(Mapper.class);
+    }
+
+    public <T> T getMapper(Class<T> type) {
+        if (!sqlSession.getConfiguration().hasMapper(type)) {
+            sqlSession.getConfiguration().addMapper(type);
+        }
+        return sqlSession.getMapper(type);
+    }
 
     public DatabaseSession(String name, SqlSession sqlSession) {
         this.name = name;
