@@ -487,7 +487,7 @@ public class DynamicDAO implements DataBaseRouteDAO, ShardingEntityAccessor, Ini
                 entityMapperClasses.put(beanType, mapperClass);
                 // register to mybatis
                 sqlSession.getConfiguration().addMapper(mapperClass);
-                LOG.info("Mapper class generated for class {}-----{}", beanType, mapperClass);
+                LOG.info("Mapper class generated for class {} <===> {}", beanType, mapperClass);
             }
 
             Assert.notNull(mapperClass, "Mapper class not found");
