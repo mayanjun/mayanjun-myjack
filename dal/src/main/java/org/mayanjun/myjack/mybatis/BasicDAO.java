@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis.dao;
+package org.mayanjun.myjack.mybatis;
 
 /**
  * BasicDAO

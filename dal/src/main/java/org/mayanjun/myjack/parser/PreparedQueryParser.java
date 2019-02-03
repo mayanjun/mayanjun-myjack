@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis;
+package org.mayanjun.myjack.parser;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.type.JdbcType;
 import org.mayanjun.myjack.core.enums.DataType;
-import org.mayanjun.myjack.parser.BaseParser;
-import org.mayanjun.myjack.parser.SQLParameter;
+import org.mayanjun.myjack.mybatis.DataTypeJdbcTypeAdapter;
 
 /**
  * MyBatisQueryParser

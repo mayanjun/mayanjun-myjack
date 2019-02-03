@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis.handler;
+package org.mayanjun.myjack.mybatis;
 
 import org.mayanjun.myjack.Sharding;
 import org.mayanjun.myjack.ShardingEntityAccessor;
@@ -22,7 +22,6 @@ import org.mayanjun.myjack.ThreadLocalCallerClassAware;
 import org.mayanjun.myjack.core.entity.PersistableEntity;
 import org.mayanjun.myjack.core.query.Query;
 import org.mayanjun.myjack.handler.EntityAccessHandler;
-import org.mayanjun.myjack.mybatis.dao.BasicDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 

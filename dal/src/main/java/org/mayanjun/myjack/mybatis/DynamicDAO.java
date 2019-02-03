@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis.dao;
+package org.mayanjun.myjack.mybatis;
 
 import javassist.ClassClassPath;
 import javassist.ClassPath;
@@ -43,16 +43,13 @@ import org.mayanjun.myjack.core.query.EquivalentComparator;
 import org.mayanjun.myjack.core.query.LogicalOperator;
 import org.mayanjun.myjack.core.query.Query;
 import org.mayanjun.myjack.core.query.QueryBuilder;
-import org.mayanjun.myjack.mybatis.DatabaseRouter;
-import org.mayanjun.myjack.mybatis.DynamicMapper;
-import org.mayanjun.myjack.mybatis.PreparedQueryParser;
+import org.mayanjun.myjack.parser.PreparedQueryParser;
 import org.mayanjun.myjack.parser.QueryParser;
 import org.mayanjun.myjack.parser.SQLParameter;
 import org.mayanjun.myjack.sharding.StaticSharding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
@@ -67,7 +64,7 @@ import java.util.*;
  *
  * @author mayanjun(6/24/16)
  */
-public class DynamicDAO implements DataBaseRouteDAO, ShardingEntityAccessor, InitializingBean {
+public class DynamicDAO implements DataBaseRouteAccessor, ShardingEntityAccessor, InitializingBean {
 
     private static final Logger LOG = LoggerFactory.getLogger(DynamicDAO.class);
 
@@ -83,12 +80,6 @@ public class DynamicDAO implements DataBaseRouteDAO, ShardingEntityAccessor, Ini
         Assert.notNull(router, "router must be set");
     }
 
-    public Collection<Class<?>> getMapperClasses() {
-        if(entityMapperClasses != null) return entityMapperClasses.values();
-        return null;
-    }
-
-    @Required
     public void setRouter(DatabaseRouter router) {
         this.router = router;
     }

@@ -21,6 +21,7 @@ import org.springframework.beans.factory.FactoryBean;
 import java.util.Properties;
 
 /**
+ * Convert comma separated key-value pair to {@link Properties}
  * @author mayanjun
  * @since 2018/7/13
  */

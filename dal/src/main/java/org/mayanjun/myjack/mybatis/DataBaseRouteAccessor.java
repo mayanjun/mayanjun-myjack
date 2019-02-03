@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis.dao;
+package org.mayanjun.myjack.mybatis;
 
 
 import org.mayanjun.myjack.core.EntityAccessor;
-import org.mayanjun.myjack.mybatis.DatabaseRouter;
 
 /**
- * DataBaseRouteDAO
+ * DataBaseRouteAccessor
  *
  * @author mayanjun(6/24/16)
  */
-public interface DataBaseRouteDAO extends EntityAccessor {
+public interface DataBaseRouteAccessor extends EntityAccessor {
 
     DatabaseRouter getDataBaseRouter();
 }

@@ -25,7 +25,7 @@ import org.mayanjun.myjack.idworker.StandaloneWorker;
 import org.mayanjun.myjack.mybatis.DatabaseRouter;
 import org.mayanjun.myjack.mybatis.DatabaseSession;
 import org.mayanjun.myjack.mybatis.ThreadLocalDatabaseRouter;
-import org.mayanjun.myjack.mybatis.dao.BasicDAO;
+import org.mayanjun.myjack.mybatis.BasicDAO;
 import org.mayanjun.myjack.support.PropertiesFactoryBean;
 import org.mayanjun.myjack.zookeeper.ZooKeeperBasedIdWorker;
 import org.mayanjun.myjack.zookeeper.ZooKeeperClientFactory;

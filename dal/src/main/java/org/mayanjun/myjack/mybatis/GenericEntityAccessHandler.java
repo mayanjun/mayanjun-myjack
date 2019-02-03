@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis.handler;
+package org.mayanjun.myjack.mybatis;
 
 import org.mayanjun.myjack.core.entity.PersistableEntity;
 import org.mayanjun.myjack.core.query.Query;
