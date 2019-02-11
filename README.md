@@ -1,3 +1,3 @@
-## myjack
+# myjack
 
-> A very easy to use database middleware
+A very easy to use database middleware
