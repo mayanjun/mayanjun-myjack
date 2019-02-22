@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.mayanjun.myjack</groupId>
+    <groupId>org.mayanjun</groupId>
     <artifactId>myjack</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
@@ -30,11 +30,13 @@
         </developer>
     </developers>
 
+
     <scm>
-        <connection>scm:git:https://github.com/mayanjun/myjack.git</connection>
-        <developerConnection>scm:git:https://github.com/mayanjun/myjack.git</developerConnection>
-        <url>https://github.com/mayanjun/myjack.git</url>
+        <url>https://github.com/mayanjun/myjack</url>
+        <connection>https://github.com/mayanjun/myjack.git</connection>
+        <developerConnection>https://github.com/mayanjun</developerConnection>
     </scm>
+
 
     <properties>
         <my.version>0.0.1-SNAPSHOT</my.version>
@@ -43,13 +45,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.mayanjun.myjack</groupId>
+                <groupId>org.mayanjun</groupId>
                 <artifactId>core</artifactId>
                 <version>${my.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.mayanjun.myjack</groupId>
+                <groupId>org.mayanjun</groupId>
                 <artifactId>dal</artifactId>
                 <version>${my.version}</version>
             </dependency>
@@ -104,21 +106,29 @@
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>oss</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
     <distributionManagement>
         <repository>
             <id>oss</id>
-            <url>
-                https://oss.sonatype.org/service/local/staging/deploy/maven2
-            </url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
         <snapshotRepository>
             <id>oss</id>
-            <url>
-                https://oss.sonatype.org/content/repositories/snapshots
-            </url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
