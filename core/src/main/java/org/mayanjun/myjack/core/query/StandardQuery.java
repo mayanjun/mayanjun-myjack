@@ -35,7 +35,6 @@ public class StandardQuery<T extends PersistableEntity> implements Query<T> {
 	private List<SqlComparator> comparators;
 	private int[] limits;
 	private Set<Sort> sorts = new HashSet<Sort>();
-	private Sort sort;
 	private Class<T> beanType;
 	private List<String> excludeFields;
 	private List<String> includeFields;
