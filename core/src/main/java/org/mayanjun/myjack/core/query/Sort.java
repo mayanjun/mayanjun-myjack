@@ -54,5 +54,18 @@ public class Sort implements Serializable {
 	public void setDirection(SortDirection direction) {
 		this.direction = direction;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Sort sort = (Sort) o;
+		return name.equals(sort.name);
+	}
+
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
 	
 }

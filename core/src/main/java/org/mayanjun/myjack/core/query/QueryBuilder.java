@@ -20,6 +20,7 @@ import org.mayanjun.myjack.core.entity.PersistableEntity;
 import org.mayanjun.myjack.core.enums.QueryDeletedMode;
 
 import java.util.Arrays;
+import java.util.Set;
 
 /**
  * QueryBuilder
@@ -181,7 +182,7 @@ public class QueryBuilder<T extends PersistableEntity> {
 	}
 	
 	public QueryBuilder<T> orderBy(String orderField, SortDirection direction) {
-		this.query.setSort(new Sort(orderField, direction));
+		this.query.addSort(new Sort(orderField, direction));
 		return this;
 	}
 	
@@ -251,8 +252,8 @@ public class QueryBuilder<T extends PersistableEntity> {
     }
 
 	public Query<T> build() {
-		Sort sort = query.getSort();
-		if(sort == null) query.setSort(new Sort("id", SortDirection.DESC));
+		Set<Sort> sorts = query.sorts();
+		if(sorts == null || sorts.isEmpty()) query.addSort(new Sort("id", SortDirection.DESC));
 		return this.query;
 	}
 }

@@ -199,13 +199,23 @@ public abstract class BaseParser implements QueryParser {
     }
 
     public void parseOrderClause(SQLParameter parameter, Query query) {
-    	StringBuilder sb = new StringBuilder();
-		Sort sort = query.getSort();
-		if(sort != null && !SqlUtils.isBlank(sort.getName())) {
-			sb.append(" ORDER BY " + SqlUtils.escapeSQLField(sort.getName(), false) + "");
-			if(sort.getDirection() != null) sb.append(" " + sort.getDirection().name());
-		}
-		parameter.setOrderClause(sb.toString());
+        StringBuilder sb = new StringBuilder();
+        Set<Sort> sorts = query.sorts();
+        if (sorts != null && !sorts.isEmpty()) {
+            for (Sort sort : sorts) {
+                if(sort != null && !SqlUtils.isBlank(sort.getName())) {
+                    sb.append(SqlUtils.escapeSQLField(sort.getName(), false) + "");
+                    if(sort.getDirection() != null) sb.append(" " + sort.getDirection().name());
+                    sb.append(",");
+                }
+            }
+            int len = sb.length();
+            if (len > 0) {
+                if (sb.charAt(len - 1) == ',') sb.deleteCharAt(len - 1);
+                sb.insert(0, " ORDER BY ");
+            }
+            parameter.setOrderClause(sb.toString());
+        }
     }
 
 	public void parseLimitClause(SQLParameter parameter, Query query) {

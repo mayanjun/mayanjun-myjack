@@ -20,7 +20,9 @@ import org.mayanjun.myjack.core.entity.PersistableEntity;
 import org.mayanjun.myjack.core.enums.QueryDeletedMode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents a query
@@ -32,6 +34,7 @@ public class StandardQuery<T extends PersistableEntity> implements Query<T> {
 	private static final long serialVersionUID = -656396755847643907L;
 	private List<SqlComparator> comparators;
 	private int[] limits;
+	private Set<Sort> sorts = new HashSet<Sort>();
 	private Sort sort;
 	private Class<T> beanType;
 	private List<String> excludeFields;
@@ -99,17 +102,6 @@ public class StandardQuery<T extends PersistableEntity> implements Query<T> {
 	}
 
 	@Override
-	public Query<T> setSort(Sort sort) {
-		this.sort = sort;
-		return this;
-	}
-
-	@Override
-	public Sort getSort() {
-		return this.sort;
-	}
-
-	@Override
 	public Query<T> setBeanType(Class<T> beanType) {
 		this.beanType = beanType;
 		return this;
@@ -162,6 +154,17 @@ public class StandardQuery<T extends PersistableEntity> implements Query<T> {
 	public Query<T> setQueryDeletedMode(QueryDeletedMode queryDeletedMode) {
 		this.queryDeletedMode = queryDeletedMode;
 		return this;
+	}
+
+	@Override
+	public Query<T> addSort(Sort sort) {
+		if (sort != null) sorts.add(sort);
+		return this;
+	}
+
+	@Override
+	public Set<Sort> sorts() {
+		return sorts;
 	}
 
 }

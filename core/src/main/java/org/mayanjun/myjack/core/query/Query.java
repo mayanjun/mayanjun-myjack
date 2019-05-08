@@ -20,6 +20,7 @@ import org.mayanjun.myjack.core.enums.QueryDeletedMode;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Query
@@ -45,9 +46,6 @@ public interface Query<T extends Serializable> extends Serializable {
 	 */
 	int[] getLimits();
 
-	Query<T> setSort(Sort sort);
-	Sort getSort();
-
 	Query<T> setBeanType(Class<T> beanType);
 	Class<T> getBeanType();
 
@@ -67,4 +65,6 @@ public interface Query<T extends Serializable> extends Serializable {
 	QueryDeletedMode getQueryDeletedMode();
 	Query<T> setQueryDeletedMode(QueryDeletedMode queryDeletedMode);
 
+	Query<T> addSort(Sort sort);
+	Set<Sort> sorts();
 }
