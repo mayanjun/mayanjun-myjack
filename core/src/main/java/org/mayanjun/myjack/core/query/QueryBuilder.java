@@ -185,6 +185,13 @@ public class QueryBuilder<T extends PersistableEntity> {
 		this.query.addSort(new Sort(orderField, direction));
 		return this;
 	}
+
+	public QueryBuilder<T> orderBy(Sort ... sort) {
+		if (sort != null && sort.length > 0) {
+			for (Sort s : sort) this.query.addSort(s);
+		}
+		return this;
+	}
 	
 	public QueryBuilder<T> limit(int limit) {
 		this.query.setLimit(limit);
