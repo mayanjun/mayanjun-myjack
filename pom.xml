@@ -10,9 +10,9 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <module>core</module>
-        <module>dal</module>
-        <module>starter</module>
+        <module>myjack-api</module>
+        <module>myjack-dal</module>
+        <module>myjack-starter</module>
     </modules>
 
     <licenses>
@@ -40,20 +40,27 @@
 
     <properties>
         <my.version>0.0.1-SNAPSHOT</my.version>
+        <core.version>0.0.1-SNAPSHOT</core.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.mayanjun</groupId>
-                <artifactId>core</artifactId>
+                <artifactId>myjack-api</artifactId>
                 <version>${my.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.mayanjun</groupId>
-                <artifactId>dal</artifactId>
+                <artifactId>myjack-dal</artifactId>
                 <version>${my.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mayanjun</groupId>
+                <artifactId>core</artifactId>
+                <version>${core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
