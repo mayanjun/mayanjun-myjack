@@ -114,15 +114,23 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>myMavenRepoRead</id>
+            <url>https://mymavenrepo.com/repo/yJ6X94jwPa0KTAkGGJ8d/</url>
+        </repository>
+    </repositories>
+
     <distributionManagement>
         <repository>
-            <id>rdc-releases</id>
-            <url>https://repo.rdc.aliyun.com/repository/73133-release-22pN4I/</url>
+            <id>myMavenRepo.write</id>
+            <url>https://mymavenrepo.com/repo/mn7EGW2PlO7iU3L7TXjc/</url>
         </repository>
         <snapshotRepository>
-            <id>rdc-snapshots</id>
-            <url>https://repo.rdc.aliyun.com/repository/73133-snapshot-0I8q8M/</url>
+            <id>myMavenRepo.write</id>
+            <url>https://mymavenrepo.com/repo/mn7EGW2PlO7iU3L7TXjc/</url>
         </snapshotRepository>
     </distributionManagement>
+
 
 </project>
