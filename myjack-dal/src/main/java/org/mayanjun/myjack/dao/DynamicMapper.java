@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis;
+package org.mayanjun.myjack.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.mayanjun.myjack.Sharding;

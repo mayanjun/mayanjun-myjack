@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis;
+package org.mayanjun.myjack.dao;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;
@@ -296,7 +296,7 @@ public class DynamicSqlBuilder {
         }
 
         String fieldName = quoteField(getColumnName(primaryHolder));
-        // set compatibility with mybatis
+        // set compatibility with dao
         DataType type = primaryHolder.getColumn().type();
         if(type == DataType.DATETIME) type = DataType.TIMESTAMP;
         String ognl = primaryHolder.getField().getName();
@@ -338,7 +338,7 @@ public class DynamicSqlBuilder {
      */
     private void fillValueMap(SqlValues values, AnnotationHolder ah, Map<String, String> valuesMap, String paramName, String ognl) {
         String fieldName = quoteField(getColumnName(ah));
-        // set compatibility with mybatis
+        // set compatibility with dao
         JdbcType type = DataTypeJdbcTypeAdapter.jdbcType(ah.getColumn().type());
         String jdbcType = "";
         if(type != null) {

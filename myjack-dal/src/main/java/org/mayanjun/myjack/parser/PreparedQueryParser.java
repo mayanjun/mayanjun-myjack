@@ -19,7 +19,7 @@ package org.mayanjun.myjack.parser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.type.JdbcType;
 import org.mayanjun.myjack.api.enums.DataType;
-import org.mayanjun.myjack.mybatis.DataTypeJdbcTypeAdapter;
+import org.mayanjun.myjack.dao.DataTypeJdbcTypeAdapter;
 
 /**
  * MyBatisQueryParser

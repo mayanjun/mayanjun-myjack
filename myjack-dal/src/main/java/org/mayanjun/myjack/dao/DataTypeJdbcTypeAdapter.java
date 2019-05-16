@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis;
+package org.mayanjun.myjack.dao;
 
 import org.apache.ibatis.type.JdbcType;
 import org.mayanjun.myjack.api.enums.DataType;
@@ -28,7 +28,7 @@ public class DataTypeJdbcTypeAdapter {
 
 	public static JdbcType jdbcType(DataType dataType) {
 		JdbcType type = null;
-		// adapt for mybatis
+		// adapt for dao
 		switch (dataType) {
 			case DATETIME:
 				type = JdbcType.TIMESTAMP;

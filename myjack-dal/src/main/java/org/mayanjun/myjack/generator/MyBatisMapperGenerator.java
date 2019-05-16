@@ -65,7 +65,7 @@ public class MyBatisMapperGenerator {
 
     protected void handleHeader(StringBuffer stringBuffer, Class<?> clazz) {
         stringBuffer.append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n")
-                .append("<!DOCTYPE mapper PUBLIC \"-//mybatis.org//DTD Mapper 3.0//EN\" \r\n")
+                .append("<!DOCTYPE mapper PUBLIC \"-//dao.org//DTD Mapper 3.0//EN\" \r\n")
                 .append("\t\"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">\r\n")
                 .append("\r\n<mapper namespace=\"")
                 .append(clazz.getSimpleName())

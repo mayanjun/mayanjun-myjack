@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mayanjun.myjack.mybatis;
+package org.mayanjun.myjack.dao;
 
 import javassist.ClassClassPath;
 import javassist.ClassPath;
@@ -476,7 +476,7 @@ public class DynamicDAO implements DataBaseRouteAccessor, ShardingEntityAccessor
             if (mapperClass == null) {
                 mapperClass = createDynamicMapperClass(beanType);
                 entityMapperClasses.put(beanType, mapperClass);
-                // register to mybatis
+                // register to dao
                 sqlSession.getConfiguration().addMapper(mapperClass);
                 LOG.info("Mapper class generated for class {} <===> {}", beanType, mapperClass);
             }

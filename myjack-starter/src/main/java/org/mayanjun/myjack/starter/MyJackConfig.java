@@ -84,7 +84,7 @@ public class MyJackConfig {
         private String validationQuery = "select 1 from dual";
         private int minimumIdle = 0;
         private int maximumPoolSize = 50;
-        private String mybatisConfigLocation = "classpath:default-mybatis-config.xml";
+        private String mybatisConfigLocation = "classpath:default-dao-config.xml";
         private String isolationLevelName = "ISOLATION_READ_COMMITTED";
         private int transactionTimeout = 3000;
         private String propagationBehaviorName = "PROPAGATION_REQUIRED";

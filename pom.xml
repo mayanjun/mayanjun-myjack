@@ -32,7 +32,7 @@
 
     <scm>
         <url>http://mayanjun.org</url>
-        <connection>https://github.com/mayanjun/core.git</connection>
+        <connection>https://github.com/mayanjun/myjack.git</connection>
         <developerConnection>https://github.com/mayanjun</developerConnection>
     </scm>
 
