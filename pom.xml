@@ -7,7 +7,7 @@
     <groupId>org.mayanjun</groupId>
     <artifactId>myjack</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1.alpha</version>
+    <version>0.0.1.RELEASE</version>
 
     <name>mayanjun-myjack</name>
     <description>myjack library</description>
@@ -42,7 +42,8 @@
 
 
     <properties>
-        <my.version>0.0.1.alpha</my.version>
+        <mayanjun.myjack.version>0.0.1.RELEASE</mayanjun.myjack.version>
+        <mayanjun.core.version>0.0.1.RELEASE</mayanjun.core.version>
     </properties>
 
     <dependencyManagement>
@@ -51,19 +52,19 @@
             <dependency>
                 <groupId>org.mayanjun</groupId>
                 <artifactId>core</artifactId>
-                <version>0.0.1.alpha</version>
+                <version>${mayanjun.core.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.mayanjun</groupId>
                 <artifactId>myjack-api</artifactId>
-                <version>${my.version}</version>
+                <version>${mayanjun.myjack.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.mayanjun</groupId>
                 <artifactId>myjack-dal</artifactId>
-                <version>${my.version}</version>
+                <version>${mayanjun.myjack.version}</version>
             </dependency>
 
         </dependencies>
