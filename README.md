@@ -10,3 +10,4 @@ A very easy to use database middleware. Please see homepage of [Myjack](http://m
 - 优化了DDL方法  
 - 优化了QueryBuilder工厂方法，调用更加方便
 - 优化了MyBatis配置文件的查找逻辑
+A very easy to use database middleware. Please see homepage of [Myjack](http://mayanjun.org/projects/myjack) for more details. 
