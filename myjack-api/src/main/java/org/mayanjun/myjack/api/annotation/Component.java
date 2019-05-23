@@ -22,7 +22,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Component
+ * 组件。可以将一组字段封装在一个对象中，并通过 @Component 注解来整体引入，类似Hibernate中的组件列。
+ * Component fields. A group of fields can be encapsulated in a component object. The same
+ * as Component in Hibernate
  *
  * @author mayanjun(8/19/15)
  * @since 0.0.1

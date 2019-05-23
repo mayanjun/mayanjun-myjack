@@ -35,22 +35,44 @@ public class Sort implements Serializable {
 		this.direction = direction;
 	}
 
+	/**
+	 * Sort name
+	 */
 	private String name;
-	
+
+	/**
+	 * Sort order
+	 */
 	private SortDirection direction;
 
+	/**
+	 * Get field name
+	 * @return field name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Set name
+	 * @param name order field name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Get sort order
+	 * @return sort order
+	 */
 	public SortDirection getDirection() {
 		return direction;
 	}
 
+	/**
+	 * Set sort order
+	 * @param direction sort order
+	 */
 	public void setDirection(SortDirection direction) {
 		this.direction = direction;
 	}

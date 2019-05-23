@@ -20,7 +20,7 @@ import java.lang.reflect.Array;
 import java.util.Collection;
 
 /**
- * EquivalentComparator
+ * In comparator
  * @author mayanjun
  * @since 0.0.1
  */

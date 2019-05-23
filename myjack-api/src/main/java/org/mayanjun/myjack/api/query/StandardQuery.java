@@ -57,16 +57,8 @@ public class StandardQuery<T extends PersistableEntity> implements Query<T> {
 	}
 
 	@Override
-	public Query<T> addAllComparators(List<SqlComparator> comparators) {
-		if(comparators != null && !comparators.isEmpty()) {
-			this.comparators.addAll(comparators);
-		}
-		return this;
-	}
-
-	@Override
-	public Query<T> setComparators(List<SqlComparator> comparators) {
-		if(comparators != null) this.comparators = comparators;
+	public Query<T> addComparators(List<SqlComparator> comparators) {
+		this.comparators.addAll(comparators);
 		return this;
 	}
 

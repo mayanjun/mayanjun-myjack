@@ -17,7 +17,8 @@
 package org.mayanjun.myjack.api.query;
 
 /**
- * {@link SortDirection}
+ * The sort order for ResultSet.
+ * @see SortDirection
  * @author mayanjun
  * @since 0.0.1
  */

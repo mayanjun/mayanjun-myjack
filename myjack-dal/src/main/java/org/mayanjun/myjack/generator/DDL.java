@@ -32,6 +32,7 @@ import org.springframework.util.ClassUtils;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,32 +73,49 @@ public class DDL {
 		ddl(outFile, includeJar, true, packageName);
 	}
 
-	public static void ddl(File outFile, boolean includeJar, boolean genDrop, String... packageName) throws Exception {
-		List<Resource> resources = parseResources(packageName);
-		FileWriter writer;
+	public static List<String> ddl(boolean includeJar, boolean genDrop, String... packageName) {
+		List<String> list = new ArrayList<String>();
 		try {
-			writer = new FileWriter(outFile);
+			List<Resource> resources = parseResources(packageName);
 			for (Resource r : resources) {
 				if(!includeJar) {
 					URI uri = r.getURI();
 					String scheme = uri.getScheme();
 					if("jar".equals(scheme)) continue;
 				}
-
 				MetadataReader reader = READER_FACTORY.getMetadataReader(r);
 				boolean matched = FILTER.match(reader, READER_FACTORY);
 				if (matched) {
 					String className = reader.getClassMetadata().getClassName();
 					Class<?> cls = Class.forName(className);
 					LOG.info("Generating: " + className);
-					writer.write(GENERATOR.generate(cls, null, genDrop));
+					list.add(GENERATOR.generate(cls, null, genDrop));
 				}
 			}
+		} catch (Exception e) {
+			LOG.error("Generate ddl error", e);
+		}
+		return list;
+	}
+
+	public static void ddl(File outFile, boolean includeJar, boolean genDrop, String... packageName) throws Exception {
+		FileWriter writer = null;
+		try {
+			writer = new FileWriter(outFile);
+			List<String> list = ddl(includeJar, genDrop, packageName);
+			for (String s : list) writer.write(s);
 			writer.flush();
 			LOG.info("DDL write success!");
-
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			if (writer != null) {
+				try {
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 

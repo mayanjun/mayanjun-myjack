@@ -21,7 +21,7 @@ import org.mayanjun.myjack.api.annotation.Column;
 import org.mayanjun.myjack.api.enums.DataType;
 
 /**
- * 可后台编辑的实体
+ * Editable entity. Tow edit related field can be inherited
  */
 public abstract class EditableEntity extends EntityBean {
 
@@ -32,10 +32,13 @@ public abstract class EditableEntity extends EntityBean {
 		super(id);
 	}
 
-	@Column(type = DataType.VARCHAR, length = "32", comment = "创建人")
+	/**
+	 *
+	 */
+	@Column(type = DataType.VARCHAR, length = "32", comment = "Creator")
 	private String creator;
 
-	@Column(type = DataType.VARCHAR, length = "32", comment = "最后一次编辑人")
+	@Column(type = DataType.VARCHAR, length = "32", comment = "Last editor")
 	private String editor;
 
 	public String getCreator() {

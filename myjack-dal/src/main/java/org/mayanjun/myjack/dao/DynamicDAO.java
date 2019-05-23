@@ -60,7 +60,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * StandardDAO
+ * A default implementation of {@link org.mayanjun.myjack.api.EntityAccessor}
  *
  * @author mayanjun(6/24/16)
  */

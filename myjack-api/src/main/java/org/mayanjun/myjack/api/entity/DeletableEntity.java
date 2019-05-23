@@ -18,9 +18,13 @@ package org.mayanjun.myjack.api.entity;
 
 import org.mayanjun.myjack.api.annotation.Column;
 import org.mayanjun.myjack.api.enums.DataType;
+import org.mayanjun.myjack.api.enums.QueryDeletedMode;
 
 /**
- *
+ * Define deleted field. All subclass of this can query use {@link org.mayanjun.myjack.api.enums.QueryDeletedMode}
+ * @see org.mayanjun.myjack.api.enums.QueryDeletedMode
+ * @see org.mayanjun.myjack.api.query.Query#setQueryDeletedMode(QueryDeletedMode)
+ * @see org.mayanjun.myjack.api.query.QueryBuilder
  * @author mayanjun
  * @since 16/05/2017
  */

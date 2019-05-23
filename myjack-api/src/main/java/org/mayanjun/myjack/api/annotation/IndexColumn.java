@@ -21,8 +21,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 索引字段信息
  * Index column
- *
  * @author mayanjun(8/19/15)
  * @since 0.0.1
  */
@@ -31,12 +31,15 @@ import java.lang.annotation.Target;
 public @interface IndexColumn {
 
     /**
-     * Specifies the name of field to which the column mapped to be set as index
+     * 需要索引的字段名称，注意是类字段的名称不是数据库字段名称。如果这里的字段名称写错了，导出SQL语句时会抛出找不到字段的异常。
+     * Specifies the name of field to which the column mapped to be set as index。A field not found exception
+     * will be thrown when exporting DDL if this value is incorrect.
      * @return index name
      */
     String value();
 
     /**
+     * 指定索引长度
      * Specifies the length of index
      * @return index length
      */

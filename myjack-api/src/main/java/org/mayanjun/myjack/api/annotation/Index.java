@@ -23,16 +23,33 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 索引定义
  * Config the index
- *
  * @author mayanjun(8/19/15)
  * @since 0.0.1
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({})
 public @interface Index {
+
+    /**
+     * 索引名称
+     * Index name
+     * @return index name
+     */
     String value() default "#";
+
+    /**
+     * 索引字段
+     * Index columns
+     * @return
+     */
     IndexColumn[] columns();
 
+    /**
+     * 索引类型
+     * Index type
+     * @return
+     */
     IndexType type() default IndexType.NULL;
 }

@@ -17,7 +17,7 @@
 package org.mayanjun.myjack.api.query;
 
 /**
- * Between 运算符
+ * Between comparator
  * @author mayanjun
  * @since 0.0.1
  */
@@ -44,6 +44,5 @@ public class BetweenComparator extends BinaryComparator {
 	public String getExpression() {
 		return "#{name} BETWEEN #{value1} AND #{value2}";
 	}
-
 
 }

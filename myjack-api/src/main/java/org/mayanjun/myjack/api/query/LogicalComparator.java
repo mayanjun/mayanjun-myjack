@@ -17,14 +17,24 @@
 package org.mayanjun.myjack.api.query;
 
 /**
- * 逻辑操作符
+ * Logical comparator
  * @author mayanjun
  * @since 0.0.1
  */
 public abstract class LogicalComparator implements SqlComparator {
+
+	public static final LogicalOperator DEFAULT_LOGICAL_OPERATOR = LogicalOperator.AND;
 	
 	private static final long serialVersionUID = 8618374265562880660L;
+
+	/**
+	 * Logical operator
+	 */
 	private LogicalOperator lo;
+
+	/**
+	 * The field name
+	 */
 	private String name;
 
 	LogicalComparator(String name, LogicalOperator lo) {
@@ -45,6 +55,5 @@ public abstract class LogicalComparator implements SqlComparator {
 	@Override
 	public void setName(String name) {
 		this.name = name;
-		
 	}
 }

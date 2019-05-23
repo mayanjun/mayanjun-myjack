@@ -17,7 +17,7 @@
 package org.mayanjun.myjack.api.query;
 
 /**
- * 单目运算符
+ * Unary operator
  * @author mayanjun
  * @since 0.0.1
  */

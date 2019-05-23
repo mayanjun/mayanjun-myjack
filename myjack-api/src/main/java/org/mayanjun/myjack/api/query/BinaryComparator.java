@@ -17,7 +17,7 @@
 package org.mayanjun.myjack.api.query;
 
 /**
- * 双目运算符
+ * Binary comparator
  * @author mayanjun
  * @since 0.0.1
  */

@@ -17,6 +17,8 @@
 package org.mayanjun.myjack.api.enums;
 
 /**
+ * 软删除对象的查询模式
+ * Query mode for {@link org.mayanjun.myjack.api.entity.DeletableEntity}
  * @author mayanjun
  * @since 2018/6/28
  */
@@ -24,16 +26,19 @@ public enum QueryDeletedMode {
 
     /**
      * 查询结果中包含已删除的数据
+     * Query all data
      */
     WITH_DELETED,
 
     /**
      * 查询结果中不包含已删除的数据
+     * Query data that not be deleted. By default use this mode.
      */
     WITHOUT_DELETED,
 
     /**
      * 查询结果中只查删除的数据
+     * Query only the deleted data
      */
     ONLY_DELETED
 

@@ -22,7 +22,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 定义主键
  * PrimaryKey
+ * @see org.mayanjun.myjack.api.entity.EntityBean
  *
  * @author mayanjun(8/19/15)
  * @since 0.0.1

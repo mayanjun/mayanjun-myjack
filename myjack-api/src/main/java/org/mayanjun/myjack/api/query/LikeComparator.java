@@ -17,7 +17,7 @@
 package org.mayanjun.myjack.api.query;
 
 /**
- * EquivalentComparator
+ * Like comparator
  * @author mayanjun
  * @since 0.0.1
  */

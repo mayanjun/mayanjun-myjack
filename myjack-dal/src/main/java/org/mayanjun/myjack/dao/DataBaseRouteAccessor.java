@@ -26,5 +26,9 @@ import org.mayanjun.myjack.api.EntityAccessor;
  */
 public interface DataBaseRouteAccessor extends EntityAccessor {
 
+    /**
+     * Get DatabaseRouter
+     * @return
+     */
     DatabaseRouter getDataBaseRouter();
 }

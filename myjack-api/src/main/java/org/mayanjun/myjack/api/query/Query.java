@@ -23,21 +23,59 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Query
+ * A query object encapsulate all the information about query data from database.
+ * Such as fields,where conditions,order by,limits,and pessimistic lock and so on.
  * @author mayanjun
  * @since 0.0.1
  */
 public interface Query<T extends Serializable> extends Serializable {
 
+	/**
+	 * Add a comparator
+	 * @param comparator comparator
+	 * @return
+	 */
 	Query<T> addComparator(SqlComparator comparator);
+
+	/**
+	 * Remove a comparator
+	 * @param comparator comparator
+	 * @return
+	 */
 	Query<T> removeComparator(SqlComparator comparator);
-	Query<T> addAllComparators(List<SqlComparator> comparators);
-	Query<T> setComparators(List<SqlComparator> comparators);
+
+	/**
+	 * Add comparators
+	 * @param comparators comparators
+	 * @return
+	 */
+	Query<T> addComparators(List<SqlComparator> comparators);
+
+	/**
+	 * Returns comparators
+	 * @return the comparators
+	 */
 	List<SqlComparator> getComparators();
 
+	/**
+	 * Set sql limit
+	 * @param limit limit
+	 * @return
+	 */
 	Query<T> setLimit(int limit);
+
+	/**
+	 * Returns the value of limit
+	 * @return the value of limit
+	 */
 	int getLimit();
 
+	/**
+	 * Set the limit
+	 * @param offset offset
+	 * @param limit limit number
+	 * @return
+	 */
 	Query<T> setLimits(int offset, int limit);
 
 	/**
@@ -46,25 +84,81 @@ public interface Query<T extends Serializable> extends Serializable {
 	 */
 	int[] getLimits();
 
+	/**
+	 * Set the bean type for this query
+	 * @param beanType bean type
+	 * @return
+	 */
 	Query<T> setBeanType(Class<T> beanType);
+
+	/**
+	 * Returns bean type
+	 * @return
+	 */
 	Class<T> getBeanType();
 
+	/**
+	 * Set the excluded fields in SQL SELECT clause
+	 * @param excludeFields
+	 * @return
+	 */
 	Query<T> setExcludeFields(List<String> excludeFields);
+
+	/**
+	 * Returns the excluded fields
+	 * @return the excluded fields
+	 */
 	List<String> getExcludeFields();
 
+	/**
+	 * Set the included fields in SQL SELECT clause
+	 * @param includeFields
+	 * @return
+	 */
 	Query<T> setIncludeFields(List<String> includeFields);
+
+	/**
+	 * Returns the included fields
+	 * @return
+	 */
 	List<String> getIncludeFields();
 
+	/**
+	 * Set the optimistic lock
+	 * @return
+	 */
 	boolean isForUpdate();
+
+	/**
+	 * Return if the optimistic lock is used
+	 * @param forUpdate if the FOR UPDATE optimistic lock is used
+	 * @return
+	 */
 	Query<T> setForUpdate(boolean forUpdate);
 
 	/**
-	 * Is query deleted data no matter if this query is a instance of {@link org.mayanjun.myjack.api.entity.DeletableEntity}
+	 * Returns the query delete mode
 	 * @return
 	 */
 	QueryDeletedMode getQueryDeletedMode();
+
+	/**
+	 * Set the query delete mode
+	 * @param queryDeletedMode queryDeletedMode
+	 * @return the query delete mode
+	 */
 	Query<T> setQueryDeletedMode(QueryDeletedMode queryDeletedMode);
 
+	/**
+	 * Add an sort field
+	 * @param sort
+	 * @return
+	 */
 	Query<T> addSort(Sort sort);
+
+	/**
+	 * Returns the sort fields
+	 * @return
+	 */
 	Set<Sort> sorts();
 }

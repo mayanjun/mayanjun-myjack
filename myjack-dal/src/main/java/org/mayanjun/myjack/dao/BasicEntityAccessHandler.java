@@ -32,8 +32,7 @@ import java.util.List;
  *
  * @author mayanjun
  */
-public abstract class BasicEntityAccessHandler extends ThreadLocalCallerClassAware
-        implements EntityAccessHandler, ShardingEntityAccessor {
+public abstract class BasicEntityAccessHandler extends ThreadLocalCallerClassAware implements EntityAccessHandler, ShardingEntityAccessor {
 
 	@Override
 	public long count(Query<?> query, Sharding sharding) {

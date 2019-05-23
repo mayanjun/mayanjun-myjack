@@ -20,18 +20,41 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.transaction.support.TransactionTemplate;
 
+/**
+ * Database session
+ */
 public class DatabaseSession {
 
+    /**
+     * Session name
+     */
     private String name;
 
+    /**
+     * Underlying session. Here is a mybatis implementation
+     */
     private SqlSession sqlSession;
 
+    /**
+     * Transaction
+     */
     private TransactionTemplate transaction;
 
+    /**
+     * Test if a Mapper class is registered
+     * @param type mybatis mapper type
+     * @return
+     */
     public boolean hasMapper(Class<?> type) {
-        return sqlSession.getConfiguration().hasMapper(Mapper.class);
+        return sqlSession.getConfiguration().hasMapper(type);
     }
 
+    /**
+     * Return a registered mapper
+     * @param type mapper class
+     * @param <T> mapper type
+     * @return Mapper object
+     */
     public <T> T getMapper(Class<T> type) {
         if (!sqlSession.getConfiguration().hasMapper(type)) {
             sqlSession.getConfiguration().addMapper(type);
@@ -39,11 +62,22 @@ public class DatabaseSession {
         return sqlSession.getMapper(type);
     }
 
+    /**
+     * Construct an instance of DatabaseSession
+     * @param name database session name
+     * @param sqlSession mybatis sql session
+     */
     public DatabaseSession(String name, SqlSession sqlSession) {
         this.name = name;
         this.sqlSession = sqlSession;
     }
 
+    /**
+     * Construct an instance of DatabaseSession
+     * @param name database session name
+     * @param sqlSession mybatis sql session
+     * @param transaction transaction
+     */
     public DatabaseSession(String name, SqlSession sqlSession, TransactionTemplate transaction) {
         this.name = name;
         this.sqlSession = sqlSession;

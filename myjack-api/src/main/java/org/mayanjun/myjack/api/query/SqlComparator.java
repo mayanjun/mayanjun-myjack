@@ -25,8 +25,6 @@ import java.io.Serializable;
  */
 public interface SqlComparator extends Serializable {
 	
-	LogicalOperator DEFAULT_LOGICAL_OPERATOR = LogicalOperator.AND;
-
 	LogicalOperator getLogicalOperator();
 	
 	/**
@@ -40,7 +38,7 @@ public interface SqlComparator extends Serializable {
 	void setName(String name);
 
 	/**
-	 * 返回比比较符
+	 * 返回比较运算表达式
 	 * @return expression
 	 * @author mayanjun
 	 * @since 1.0.1

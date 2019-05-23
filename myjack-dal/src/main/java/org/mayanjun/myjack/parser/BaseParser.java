@@ -180,7 +180,7 @@ public abstract class BaseParser implements QueryParser {
                             SqlComparator prev = comparators.get(i - 1);
                             if(!(prev instanceof GroupComparator) || !((GroupComparator) prev).isStart()) {
                                 LogicalOperator lo = c.getLogicalOperator();
-                                if(lo == null) lo = SqlComparator.DEFAULT_LOGICAL_OPERATOR;
+                                if(lo == null) lo = LogicalComparator.DEFAULT_LOGICAL_OPERATOR;
                                 where.append(" " + lo + " ");
                             }
                         }

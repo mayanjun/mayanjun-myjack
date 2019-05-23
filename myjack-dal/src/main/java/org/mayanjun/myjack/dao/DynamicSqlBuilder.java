@@ -37,8 +37,7 @@ import java.util.Map;
 import static org.mayanjun.myjack.generator.AnnotationHelper.*;
 
 /**
- * MyBatisDynamicSqlBuilder
- *
+ * Dynamic parameter binding and generate SQL
  * @author mayanjun(6/22/16)
  * @since 0.0.5
  */

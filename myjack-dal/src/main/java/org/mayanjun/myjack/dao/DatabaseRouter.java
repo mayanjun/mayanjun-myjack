@@ -29,7 +29,7 @@ public interface DatabaseRouter {
 
     /**
      * 获取正在使用的 sqlSession. 如果找不到则默认获取第一个
-     * @return
+     * @return the default session
      */
     DatabaseSession getDatabaseSession();
 

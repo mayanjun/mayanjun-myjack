@@ -17,7 +17,7 @@
 package org.mayanjun.myjack.api.query;
 
 /**
- * 小于运算符
+ * Less than or equals comparator
  * @author mayanjun
  * @since 0.0.1
  */
