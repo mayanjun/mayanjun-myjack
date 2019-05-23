@@ -31,22 +31,32 @@ public interface PersistableEntity<P extends Serializable> extends Serializable 
 	 *
 	 * @return ID
 	 */
-	public P getId();
-	public void setId(P id);
+	P getId();
+	void setId(P id);
 
 	/**
 	 * Returns the created time
 	 *
 	 * @return the date that the entity created
 	 */
-	public Date getCreatedTime();
-	public void setCreatedTime(Date createdTime);
+	Date getCreatedTime();
+
+	/**
+	 * Set created time
+	 * @param createdTime time
+	 */
+	void setCreatedTime(Date createdTime);
 
 	/**
 	 * Returns the modified time
 	 *
 	 * @return the date of the entity modified
 	 */
-	public Date getModifiedTime();
-	public void setModifiedTime(Date modifiedTime);
+	Date getModifiedTime();
+
+	/**
+	 * Set modified time
+	 * @param modifiedTime time
+	 */
+	void setModifiedTime(Date modifiedTime);
 }

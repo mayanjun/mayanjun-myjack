@@ -43,6 +43,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -146,7 +147,12 @@ public class MyJackAutoConfiguration implements ApplicationRunner, ResourceLoade
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         if (StringUtils.isNotBlank(config.getMybatisConfigLocation())) {
-            sqlSessionFactoryBean.setConfigLocation(resourceLoader.getResource(config.getMybatisConfigLocation()));
+            Resource resource = resourceLoader.getResource(config.getMybatisConfigLocation());
+            if (resource.exists()) {
+                sqlSessionFactoryBean.setConfigLocation(resource);
+            } else {
+                LOG.warn("Mybatis config file not found: {}", config.getMybatisConfigLocation());
+            }
         }
         sqlSessionFactoryBean.afterPropertiesSet();
         return sqlSessionFactoryBean;

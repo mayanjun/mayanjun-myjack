@@ -186,6 +186,15 @@ public class QueryBuilder<T extends PersistableEntity> {
 		return this;
 	}
 
+	/**
+	 * 默认使用升序排序
+	 * @param orderField
+	 * @return
+	 */
+	public QueryBuilder<T> orderBy(String orderField) {
+		return orderBy(orderField, SortDirection.ASC);
+	}
+
 	public QueryBuilder<T> orderBy(Sort ... sort) {
 		if (sort != null && sort.length > 0) {
 			for (Sort s : sort) this.query.addSort(s);

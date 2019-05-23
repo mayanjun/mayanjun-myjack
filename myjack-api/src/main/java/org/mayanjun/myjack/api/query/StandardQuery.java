@@ -19,10 +19,7 @@ package org.mayanjun.myjack.api.query;
 import org.mayanjun.myjack.api.entity.PersistableEntity;
 import org.mayanjun.myjack.api.enums.QueryDeletedMode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Represents a query
@@ -34,7 +31,7 @@ public class StandardQuery<T extends PersistableEntity> implements Query<T> {
 	private static final long serialVersionUID = -656396755847643907L;
 	private List<SqlComparator> comparators;
 	private int[] limits;
-	private Set<Sort> sorts = new HashSet<Sort>();
+	private Set<Sort> sorts = new LinkedHashSet<Sort>();
 	private Class<T> beanType;
 	private List<String> excludeFields;
 	private List<String> includeFields;

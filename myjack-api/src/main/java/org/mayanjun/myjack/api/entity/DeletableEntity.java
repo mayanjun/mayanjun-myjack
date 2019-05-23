@@ -20,6 +20,7 @@ import org.mayanjun.myjack.api.annotation.Column;
 import org.mayanjun.myjack.api.enums.DataType;
 
 /**
+ *
  * @author mayanjun
  * @since 16/05/2017
  */
