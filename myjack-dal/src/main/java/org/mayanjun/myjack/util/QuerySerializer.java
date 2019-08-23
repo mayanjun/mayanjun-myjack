@@ -35,7 +35,7 @@ public class QuerySerializer {
 		return Base64.encodeBase64String(bytes);
 	}
 
-	public static Query<?> unserialize(String encodedQuery) {
+	public static Query<?> deserialize(String encodedQuery) {
 		try {
 			byte bs[] = Base64.decodeBase64(encodedQuery);
 			return (Query<?>)ObjectSerializer.unserialize(bs);

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>myjack</artifactId>
         <groupId>org.mayanjun</groupId>
-        <version>0.0.2.RELEASE</version>
+        <version>0.0.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,6 +16,22 @@
     </description>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.mayanjun</groupId>
+            <artifactId>core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mayanjun</groupId>
+            <artifactId>myjack-dal</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -37,22 +53,6 @@
                     <artifactId>spring-core</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mayanjun</groupId>
-            <artifactId>myjack-dal</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mayanjun</groupId>
-            <artifactId>core</artifactId>
         </dependency>
 
         <dependency>

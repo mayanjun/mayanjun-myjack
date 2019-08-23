@@ -58,6 +58,7 @@ import org.springframework.util.Assert;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * A default implementation of {@link org.mayanjun.myjack.api.EntityAccessor}
@@ -70,7 +71,7 @@ public class DynamicDAO implements DataBaseRouteAccessor, ShardingEntityAccessor
 
     private DatabaseRouter router;
     private IdWorker idWorker;
-    private Map<Class<?>, Class<?>> entityMapperClasses = new IdentityHashMap<Class<?>, Class<?>>();
+    private Map<Class<?>, Class<?>> entityMapperClassesCache = new IdentityHashMap<Class<?>, Class<?>>();
 
     private QueryParser parser = new PreparedQueryParser(DynamicMapper.PARAM_NAME);
     private Sharding defaultSharding = new DefaultSharding();
@@ -471,16 +472,20 @@ public class DynamicDAO implements DataBaseRouteAccessor, ShardingEntityAccessor
 
 
     public DynamicMapper<PersistableEntity> getMapper(Class<?> beanType, SqlSession sqlSession) {
-        Class<?> mapperClass = entityMapperClasses.get(beanType);
+        Class<?> mapperClass = entityMapperClassesCache.get(beanType);
         try {
             if (mapperClass == null) {
                 synchronized (this) {
-                    if (mapperClass == null) {
-                        mapperClass = createDynamicMapperClass(beanType);
-                        entityMapperClasses.put(beanType, mapperClass);
+                    Class<?> mapperClassGen = entityMapperClassesCache.get(beanType);
+                    if (mapperClassGen == null) {
+                        mapperClassGen = createDynamicMapperClass(beanType);
                         // register to dao
+                        mapperClass = mapperClassGen;
                         sqlSession.getConfiguration().addMapper(mapperClass);
+                        entityMapperClassesCache.put(beanType, mapperClass);
                         LOG.info("Mapper class generated for class(double check) {} <===> {}", beanType, mapperClass);
+                    } else {
+                        mapperClass = mapperClassGen;
                     }
                 }
             }

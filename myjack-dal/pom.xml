@@ -5,7 +5,7 @@
     <parent>
         <artifactId>myjack</artifactId>
         <groupId>org.mayanjun</groupId>
-        <version>0.0.2.RELEASE</version>
+        <version>0.0.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -19,14 +19,14 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.21.0-GA</version>
+            <groupId>org.mayanjun</groupId>
+            <artifactId>myjack-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.mayanjun</groupId>
-            <artifactId>myjack-api</artifactId>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.21.0-GA</version>
         </dependency>
 
         <dependency>
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
+            <version>2.9.9.3</version>
         </dependency>
 
         <dependency>
