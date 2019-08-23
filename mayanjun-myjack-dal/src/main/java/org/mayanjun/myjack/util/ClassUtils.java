@@ -60,16 +60,19 @@ public class ClassUtils {
     private static Map<String, Field> getAllInheritedFields(Class<?> cls) {
         Map<String, Field> map = new HashMap<String, Field>();
         if (cls == Object.class) return map;
+
+        Map<String, Field> superMap = getAllInheritedFields(cls.getSuperclass());
+        if (!superMap.isEmpty()) {
+            map.putAll(superMap);
+        }
+
         Field fields[] = cls.getDeclaredFields();
         if (fields != null && fields.length > 0) {
             for (Field f : fields) {
                 map.put(f.getName(), f);
             }
         }
-        Map<String, Field> superMap = getAllInheritedFields(cls.getSuperclass());
-        if (!superMap.isEmpty()) {
-            map.putAll(superMap);
-        }
+
         return map;
     }
 

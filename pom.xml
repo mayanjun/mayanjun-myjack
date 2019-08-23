@@ -5,18 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mayanjun</groupId>
-    <artifactId>myjack</artifactId>
+    <artifactId>mayanjun-myjack</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.2</version>
+    <version>0.0.1</version>
 
     <name>mayanjun-myjack</name>
     <description>myjack library</description>
     <url>https://github.com/mayanjun/myjack</url>
 
     <modules>
-        <module>myjack-api</module>
-        <module>myjack-dal</module>
-        <module>myjack-starter</module>
+        <module>mayanjun-myjack-api</module>
+        <module>mayanjun-myjack-dal</module>
+        <module>mayanjun-myjack-starter</module>
     </modules>
 
     <licenses>
@@ -42,8 +42,8 @@
 
 
     <properties>
-        <mayanjun.myjack.version>0.0.2</mayanjun.myjack.version>
-        <mayanjun.core.version>0.0.1.RELEASE</mayanjun.core.version>
+        <mayanjun.myjack.version>0.0.1</mayanjun.myjack.version>
+        <mayanjun.core.version>0.0.1</mayanjun.core.version>
     </properties>
 
     <dependencyManagement>
@@ -51,19 +51,19 @@
 
             <dependency>
                 <groupId>org.mayanjun</groupId>
-                <artifactId>core</artifactId>
+                <artifactId>mayanjun-core</artifactId>
                 <version>${mayanjun.core.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.mayanjun</groupId>
-                <artifactId>myjack-api</artifactId>
+                <artifactId>mayanjun-myjack-api</artifactId>
                 <version>${mayanjun.myjack.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.mayanjun</groupId>
-                <artifactId>myjack-dal</artifactId>
+                <artifactId>mayanjun-myjack-dal</artifactId>
                 <version>${mayanjun.myjack.version}</version>
             </dependency>
 
