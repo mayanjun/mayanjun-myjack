@@ -475,7 +475,7 @@ public class DynamicDAO implements DataBaseRouteAccessor, ShardingEntityAccessor
         Class<?> mapperClass = entityMapperClassesCache.get(beanType);
         try {
             if (mapperClass == null) {
-                synchronized (this) {
+                synchronized (beanType) {
                     Class<?> mapperClassGen = entityMapperClassesCache.get(beanType);
                     if (mapperClassGen == null) {
                         mapperClassGen = createDynamicMapperClass(beanType);

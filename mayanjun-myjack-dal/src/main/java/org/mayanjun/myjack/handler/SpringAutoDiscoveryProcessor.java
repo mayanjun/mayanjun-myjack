@@ -89,9 +89,6 @@ public abstract class SpringAutoDiscoveryProcessor<T extends EntityAccessHandler
 		return this;
 	}
 
-	/**
-	 * @return
-	 */
 	public List<T> getHandlers() {
 		return handlers;
 	}

@@ -25,7 +25,7 @@ public interface CallerClassAware {
 
     /**
      * Callback that supplies the caller class to a bean instance.
-     * @param caller
+     * @param caller caller
      */
     void setCaller(Class<?> caller);
 

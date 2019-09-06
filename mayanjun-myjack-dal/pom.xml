@@ -20,7 +20,7 @@
 
         <dependency>
             <groupId>org.mayanjun</groupId>
-            <artifactId>myjack-api</artifactId>
+            <artifactId>mayanjun-myjack-api</artifactId>
         </dependency>
 
         <dependency>

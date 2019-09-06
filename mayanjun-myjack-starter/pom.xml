@@ -19,12 +19,13 @@
 
         <dependency>
             <groupId>org.mayanjun</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>mayanjun-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.mayanjun</groupId>
-            <artifactId>myjack-dal</artifactId>
+            <artifactId>mayanjun-myjack-dal</artifactId>
+            <version>0.0.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework</groupId>

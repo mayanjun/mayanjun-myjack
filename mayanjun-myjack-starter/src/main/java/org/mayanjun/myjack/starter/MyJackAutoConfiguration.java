@@ -19,8 +19,13 @@ package org.mayanjun.myjack.starter;
 import com.zaxxer.hikari.HikariDataSource;
 import org.I0Itec.zkclient.ZkClient;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.TypeHandler;
+import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.mayanjun.core.Assert;
 import org.mayanjun.myjack.IdWorker;
+import org.mayanjun.myjack.converter.StringArrayVarcharTypeHandler;
 import org.mayanjun.myjack.idworker.StandaloneWorker;
 import org.mayanjun.myjack.dao.DatabaseRouter;
 import org.mayanjun.myjack.dao.DatabaseSession;
@@ -50,6 +55,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @EnableConfigurationProperties(MyJackConfig.class)
@@ -117,10 +123,13 @@ public class MyJackAutoConfiguration implements ApplicationRunner, ResourceLoade
 
         for (MyJackConfig.DataSourceConfig config : config.getDatasourceConfigs()) {
             DataSource dataSource = createDataSource(config);
+
             SqlSessionFactoryBean sqlSessionFactoryBean = createSqlSessionFactoryBean(dataSource, config);
 
+            SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBean.getObject();
+
             // create sql session template
-            SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactoryBean.getObject());
+            SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory);
             sqlSessionTemplates.add(template);
 
             // create transactionTemplate
@@ -178,10 +187,12 @@ public class MyJackAutoConfiguration implements ApplicationRunner, ResourceLoade
 
     @Bean
     @ConditionalOnMissingBean(BasicDAO.class)
-    public BasicDAO basicDAO() throws Exception {
+    public BasicDAO basicDAO(
+            @Autowired IdWorker idWorker,
+            @Autowired DatabaseRouter router) throws Exception {
         BasicDAO dao = new BasicDAO();
-        dao.setIdWorker(idWorker());
-        dao.setRouter(dataBaseRouter());
+        dao.setIdWorker(idWorker);
+        dao.setRouter(router);
         return dao;
     }
 

@@ -35,7 +35,7 @@ public interface DatabaseRouter {
 
     /**
      * 是否共享此session
-     * @param session
+     * @param session session
      */
     void shareDatabaseSession(DatabaseSession session);
 
@@ -43,16 +43,16 @@ public interface DatabaseRouter {
 
     /**
      * 通过名字获取session
-     * @param name
-     * @return
+     * @param name database name
+     * @return session
      */
     DatabaseSession getDatabaseSession(String name);
 
     /**
      * 通过Sharding对象获取session
-     * @param sharding
-     * @param source
-     * @return
+     * @param sharding sharding
+     * @param source source
+     * @return session
      */
     DatabaseSession getDatabaseSession(Sharding sharding, Object source);
 }

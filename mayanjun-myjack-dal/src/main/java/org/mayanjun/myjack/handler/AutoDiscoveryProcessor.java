@@ -29,28 +29,28 @@ public interface AutoDiscoveryProcessor<T extends EntityAccessHandler, C> {
 
 	/**
 	 * Returns the type for discovery of beans
-	 * @return
+	 * @return the type for discovery of beans
 	 */
 	Class<C>[] getAutoDiscoveryTypes();
 
 	/**
 	 * Return the packages which is the found handlers in.
 	 * if no packages specified, this option will be ignored
-	 * @return
+	 * @return the packages which is the found handlers in.
 	 */
 	String[] getPackages();
 
 	/**
 	 * Return supports handler
-	 * @param source
+	 * @param source source
 	 * @return null if no handler found
 	 */
 	T getHandler(Object source);
 
 	/**
 	 * Set handlers
-	 * @param handlers
-	 * @return
+	 * @param handlers handlers
+	 * @return self
 	 */
 	AutoDiscoveryProcessor<T, C> setHandlers(T... handlers);
 

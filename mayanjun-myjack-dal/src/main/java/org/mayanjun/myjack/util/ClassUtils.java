@@ -78,8 +78,8 @@ public class ClassUtils {
 
     /**
      * Get field by name
-     * @param cls
-     * @param name
+     * @param cls class
+     * @param name field name
      * @return return null if no field specified by name found
      */
     public static Field getField(Class<?> cls, String name) {

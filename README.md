@@ -6,8 +6,5 @@ A very easy to use database middleware. Please see homepage of [Myjack](http://m
 - 初始版本
 
 ## 0.0.2
-- 修复了多个 ORDER BY 子句顺序错误的问题
-- 优化了DDL方法  
-- 优化了QueryBuilder工厂方法，调用更加方便
-- 优化了MyBatis配置文件的查找逻辑，提供了默认配置
+- 默认注册了 StringArrayTypeHandler
  

@@ -28,7 +28,7 @@ public interface DataBaseRouteAccessor extends EntityAccessor {
 
     /**
      * Get DatabaseRouter
-     * @return
+     * @return the database router
      */
     DatabaseRouter getDataBaseRouter();
 }
