@@ -7,7 +7,7 @@
     <groupId>org.mayanjun</groupId>
     <artifactId>mayanjun-myjack</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <name>mayanjun-myjack</name>
     <description>myjack library</description>
@@ -40,10 +40,9 @@
         <developerConnection>https://github.com/mayanjun</developerConnection>
     </scm>
 
-
     <properties>
-        <mayanjun.myjack.version>0.0.1</mayanjun.myjack.version>
         <mayanjun.core.version>0.0.1</mayanjun.core.version>
+        <mayanjun.myjack.version>0.0.2</mayanjun.myjack.version>
     </properties>
 
     <dependencyManagement>
