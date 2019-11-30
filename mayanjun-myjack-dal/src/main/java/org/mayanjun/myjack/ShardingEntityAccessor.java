@@ -88,6 +88,10 @@ public interface ShardingEntityAccessor {
      */
     long saveOrUpdate(PersistableEntity bean, Sharding sharding);
 
+    <T extends PersistableEntity> T saveEntity(T bean, Sharding sharding);
+    <T extends PersistableEntity> T saveEntity(T bean, Sharding sharding, boolean isAutoIncrementId);
+    <T extends PersistableEntity> T saveOrUpdateEntity(T bean, Sharding sharding);
+
     /**
      * Save of update entity bean
      * @param bean entity bean
