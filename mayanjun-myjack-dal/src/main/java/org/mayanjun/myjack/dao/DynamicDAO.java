@@ -282,13 +282,18 @@ public class DynamicDAO implements DataBaseRouteAccessor, ShardingEntityAccessor
             }
         }
         bean.setId(id);
-
         SqlSession sqlSession = getSqlSession(sharding, bean);
         DynamicMapper<PersistableEntity> mapper = getMapper(bean.getClass(), sqlSession);
 
         int ret = mapper.insert(bean, sharding);
         if(ret <= 0) return 0;
-        if (id == null) id = (Long) bean.getId();
+
+        Serializable dbid = bean.getId();
+        if (dbid instanceof Number) {
+            id = ((Number) dbid).longValue();
+        } else {
+            id = Long.valueOf(ret);
+        }
         return id;
     }
 

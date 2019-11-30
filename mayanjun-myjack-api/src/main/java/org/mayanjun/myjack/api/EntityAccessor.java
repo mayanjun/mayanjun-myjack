@@ -82,11 +82,6 @@ public interface EntityAccessor {
      */
     long saveOrUpdate(PersistableEntity bean);
 
-
-    <T extends PersistableEntity> T saveEntity(T bean);
-    <T extends PersistableEntity> T saveEntity(T bean, boolean isAutoIncrementId);
-    <T extends PersistableEntity> T saveOrUpdateEntity(T bean);
-
     /**
      * Save or update bean
      * @param bean
